@@ -1,0 +1,40 @@
+{
+  "name": "weather-dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cd Develop/server && nodemon src/index.ts",
+    "start": "cd Develop/server && node dist/server.js",
+    "start:dev": "concurrently \"npm run server:dev\" \"wait-on tcp:3001 && npm run client:dev\"",
+    "server": "cd Develop/server && npm start",
+    "server:dev": "cd Develop/server && npm run dev",
+    "install": "cd Develop/server && npm i && cd ../client && npm i",
+    "client:build": "cd Develop/client && npm run build",
+    "client:dev": "cd Develop/client && npm run dev",
+    "build": "npm run build:server && npm run build:client",
+    "build:server": "cd Develop/server && tsc && npm run copy-html",
+    "build:client": "cd Develop/client && npm run build",
+    "copy-html": "copyfiles -u 1 Develop/server/src/routes/*.html Develop/server/dist/routes",
+    "render-build": "npm install && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.0",
+    "wait-on": "^7.2.0",
+    "typescript": "^4.4.3",
+    "copyfiles": "^2.4.1"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.2",
+    "bootstrap": "^5.3.3",
+    "express": "^4.17.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0"
+  }
+}
