@@ -98,7 +98,9 @@ Endpoints
 ## Environment Variables
 Create a .env file in the server directory with the following content:
 API_BASE_URL=https://api.openweathermap.org
+
 API_KEY=your_openweathermap_api_key
+
 PORT=3002
 
 
