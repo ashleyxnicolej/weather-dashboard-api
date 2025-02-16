@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",     
+  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cd Develop/server && nodemon src/index.ts",
@@ -17,24 +19,54 @@
     "build:server": "cd Develop/server && tsc && npm run copy-html",
     "build:client": "cd Develop/client && npm run build",
     "copy-html": "copyfiles -u 1 Develop/server/src/routes/*.html Develop/server/dist/routes",
-    "render-build": "npm install && npm run build"
+    "render-build": "npm install && npm run build",
+    "watch": "tsc -w",
+    "dev:watch": "concurrently \"npm run watch\" \"npm run dev\"",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write \"src/**/*.ts\""
   },
-  "keywords": [],
+
+
+  "keywords": [
+    "weather",
+    "dashboard",
+    "openweather",
+    "api"
+  ],
+
   "author": "",
   "license": "ISC",
+
   "devDependencies": {
     "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.19",
     "concurrently": "^8.2.2",
     "nodemon": "^3.1.0",
     "wait-on": "^7.2.0",
     "typescript": "^4.4.3",
-    "copyfiles": "^2.4.1"
-  },
+    "copyfiles": "^2.4.1",
+    "ts-node": "^10.9.2",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.1",
+    "@typescript-eslint/parser": "^7.0.1",
+    "prettier": "^3.2.5"
+},
+
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.2",
     "bootstrap": "^5.3.3",
     "express": "^4.17.1",
     "cors": "^2.8.5",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "uuid": "^9.0.1"
+  },
+
+
+  "engines": {
+    "node": ">=10.0.0"
   }
 }
+
+
+
