@@ -21,15 +21,16 @@ This project is a Weather Dashboard application that allows users to search for 
    cd weather-dashboard
 
 2. Install dependencies for both client and server:
-npm install
+   ```
+   npm install
 
-cd client
+   cd client
 
-npm install
+   npm install
 
-cd ../server
+   cd ../server
 
-npm install
+   npm install
 
 
 ## Usage
